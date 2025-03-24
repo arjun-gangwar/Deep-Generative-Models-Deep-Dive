@@ -1,0 +1,12 @@
+training:
+  lr: 1e-3
+  batch_size: 64
+  epochs: 20
+  init_features: 32
+  wandb_project: autoencoder
+  wandb_resume: False
+  resume_id: null
+data:
+  train_path: "/speech/arjun/exps/1study/generative_models/data/MNIST_CSV/mnist_train.csv"
+  test_path: "/speech/arjun/exps/1study/generative_models/data/MNIST_CSV/mnist_test.csv"
+  valid_split: 0.1

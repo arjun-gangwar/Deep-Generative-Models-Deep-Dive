@@ -8,6 +8,9 @@ import torch
 from torch.utils.data import Dataset
 
 class MnistDataset(Dataset):
+    """
+    returns: (image, label) -> (C,H,W), ()
+    """
     def __init__(self, csv_path):
         self.label_image = pd.read_csv(csv_path)
         self.labels = self.label_image.iloc[:, 0]
@@ -15,8 +18,8 @@ class MnistDataset(Dataset):
     def __len__(self):
         return len(self.labels)
     def __getitem__(self, idx):
-        image = torch.Tensor(self.images.iloc[idx, :]).reshape(28,28)
-        label = torch.Tensor(self.labels.iloc[idx])
+        image = torch.Tensor(self.images.iloc[idx, :]).reshape(1, 28, 28)
+        label = torch.tensor(self.labels.iloc[idx])
         return image, label
 
 def main():
